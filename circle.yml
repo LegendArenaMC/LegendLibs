@@ -1,0 +1,17 @@
+dependencies:
+  override:
+    - gradle dependencies
+
+general:
+  artifacts:
+    - "build/libs/*.jar"
+
+deployment:
+  nexus:
+    branch: master
+    commands:
+      - gradle upload
+
+test:
+  override:
+    - ./build.sh
